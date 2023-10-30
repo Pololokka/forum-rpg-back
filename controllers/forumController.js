@@ -17,6 +17,16 @@ const forumController = {
       console.log(`Erro: ${error}`);
     }
   },
+
+  getAll: async (rqe, res) => {
+    try {
+      const forum = await ForumModel.find();
+
+      res.json(forum);
+    } catch (error) {
+      console.log(`Erro: ${error}`);
+    }
+  },
 };
 
 module.exports = forumController;
