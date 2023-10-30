@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 
-const serviceSchema = new Schema(
+const forumSchema = new Schema(
   {
     user: {
       type: String,
@@ -24,9 +24,9 @@ const serviceSchema = new Schema(
   { timestamps: true }
 );
 
-const Service = mongoose.model("Service", serviceSchema);
+const Forum = mongoose.model("Forum", forumSchema);
 
 module.exports = {
-  Service,
-  serviceSchema,
+  Forum,
+  forumSchema,
 };
