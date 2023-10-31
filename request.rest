@@ -7,3 +7,11 @@ Content-Type: application/json
     "date": "30-10-23 11:49",
     "postContent": "qualquer coisa aqui só pra ver se tá funcionando"
 }
+
+###
+
+GET http://localhost:3000/api/forum
+
+###
+
+GET http://localhost:3000/api/forum/653fc564083030de512d975c

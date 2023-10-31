@@ -18,9 +18,24 @@ const forumController = {
     }
   },
 
-  getAll: async (rqe, res) => {
+  getAll: async (req, res) => {
     try {
       const forum = await ForumModel.find();
+
+      res.json(forum);
+    } catch (error) {
+      console.log(`Erro: ${error}`);
+    }
+  },
+
+  get: async (req, res) => {
+    try {
+      const id = req.params.id;
+      const forum = await ForumModel.findById(id);
+
+      if (!forum) {
+        res.status(404).json({ msg: "Post não encontrado" });
+      }
 
       res.json(forum);
     } catch (error) {
