@@ -8,4 +8,8 @@ router.route("/forum").get((req, res) => forumController.getAll(req, res));
 
 router.route("/forum/:id").get((req, res) => forumController.get(req, res));
 
+router
+  .route("/forum/:id")
+  .delete((req, res) => forumController.delete(req, res));
+
 module.exports = router;

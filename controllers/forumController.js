@@ -42,6 +42,23 @@ const forumController = {
       console.log(`Erro: ${error}`);
     }
   },
+
+  delete: async (req, res) => {
+    try {
+      const id = req.params.id;
+      const forum = await ForumModel.findById(id);
+
+      if (!forum) {
+        res.status(404).json({ msg: "Post não encontrado" });
+      }
+
+      const deleteForum = await ForumModel.findByIdAndDelete(id);
+
+      res.status(200).json({ deleteForum, msg: "Post excluído com sucesso" });
+    } catch (error) {
+      console.log(`Erro: ${error}`);
+    }
+  },
 };
 
 module.exports = forumController;

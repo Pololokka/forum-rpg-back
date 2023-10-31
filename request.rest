@@ -14,4 +14,8 @@ GET http://localhost:3000/api/forum
 
 ###
 
-GET http://localhost:3000/api/forum/653fc564083030de512d975c
+GET http://localhost:3000/api/forum/653fc5f9083030de512d975e
+
+###
+
+DELETE  http://localhost:3000/api/forum/653fc5f9083030de512d975e
