@@ -35,11 +35,18 @@ Rota que exibe as informações de um usuário, e permite algumas mudanças
 
 ## Roadmap
 
-[] Forum - ~~Rota de criação de posts~~ - ~~Rota de deleção de posts~~ - ~~Rota de update de posts~~ - ~~Rota de pegar os posts~~ - Agrupar posts por mesa
-[] GM
-[] Further Reading
-[] User - Rota para alterar nome de usuário, e foto
-[] Paginação
+[ ] Forum
+
+- ~~Rota de criação de posts~~
+- ~~Rota de deleção de posts~~
+- ~~Rota de update de posts~~
+- ~~Rota de pegar os posts~~
+- Agrupar posts por mesa
+
+[ ] GM
+[ ] Further Reading
+[ ] User - Rota para alterar nome de usuário, e foto
+[ ] Paginação
 
 ## Licença
 
