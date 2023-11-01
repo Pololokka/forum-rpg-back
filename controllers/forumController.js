@@ -59,6 +59,25 @@ const forumController = {
       console.log(`Erro: ${error}`);
     }
   },
+
+  update: async (req, res) => {
+    const id = req.params.id;
+
+    const forum = {
+      user: req.body.user,
+      profilePic: req.body.profilePic,
+      date: req.body.date,
+      postContent: req.body.postContent,
+    };
+
+    const updateForum = await ForumModel.findByIdAndUpdate(id, forum);
+
+    if (!updateForum) {
+      res.status(404).json({ msg: "Post não encontrado" });
+    }
+
+    res.status(200).json({ forum, msg: "Post editado com sucesso" });
+  },
 };
 
 module.exports = forumController;

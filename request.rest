@@ -19,3 +19,15 @@ GET http://localhost:3000/api/forum/653fc5f9083030de512d975e
 ###
 
 DELETE  http://localhost:3000/api/forum/653fc5f9083030de512d975e
+
+###
+
+PUT http://localhost:3000/api/forum/654297d16143d83271ee4306
+Content-Type: application/json
+
+{
+    "user": "Usuário Teste",
+    "profilePic": "https://cdn.discordapp.com/attachments/621499803884584998/1168562289453051945/marco-wulfr-marco-wulfr-twinning-blade-final-marcowulfr-closeup-pattern.jpg?ex=65523770&is=653fc270&hm=b41b6169e0acfa8967264547d1a7e1d4de58bf5bdd23c28fbec3e9e9184a408d&",
+    "date": "01-11-23 15:23",
+    "postContent": "teste de edição, meu patrão"
+}

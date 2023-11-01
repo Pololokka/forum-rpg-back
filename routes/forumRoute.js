@@ -12,4 +12,6 @@ router
   .route("/forum/:id")
   .delete((req, res) => forumController.delete(req, res));
 
+router.route("/forum/:id").put((req, res) => forumController.update(req, res));
+
 module.exports = router;
