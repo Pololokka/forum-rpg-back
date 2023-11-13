@@ -33,3 +33,14 @@ Content-Type: application/json
     "date": "01-11-23 15:23",
     "postContent": "teste de edição, meu patrão"
 }
+
+### MESAS ###
+
+POST http://localhost:3000/api/group
+Content-Type: application/json
+
+{
+    "name": "Mesa Teste",
+    "users": ["Usuário Teste 1", "Usuário Teste 2"],
+    "owner": "Usuário Teste 1"
+}

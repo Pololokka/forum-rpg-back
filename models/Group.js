@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 
 const groupSchema = new Schema(
   {
-    name: {
+    groupName: {
       type: String,
       required: true,
     },
