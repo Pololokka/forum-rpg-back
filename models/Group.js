@@ -2,21 +2,17 @@ const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 
-const forumSchema = new Schema(
+const groupSchema = new Schema(
   {
-    user: {
+    name: {
       type: String,
       required: true,
     },
-    profilePic: {
-      type: String,
+    users: {
+      type: [String],
       required: true,
     },
-    group: {
-      type: String,
-      required: true,
-    },
-    postContent: {
+    owner: {
       type: String,
       required: true,
     },
@@ -24,9 +20,9 @@ const forumSchema = new Schema(
   { timestamps: true }
 );
 
-const Forum = mongoose.model("Forum", forumSchema);
+const Group = mongoose.model("Group", groupSchema);
 
 module.exports = {
-  Forum,
-  forumSchema,
+  Group,
+  groupSchema,
 };
