@@ -36,6 +36,8 @@ Content-Type: application/json
 
 ### MESAS ###
 
+### criar nova mesa
+
 POST http://localhost:3000/api/group
 Content-Type: application/json
 
@@ -44,3 +46,11 @@ Content-Type: application/json
     "users": ["Usuário Teste 1", "Usuário Teste 2"],
     "owner": "Usuário Teste 1"
 }
+
+### pega todas as mesas
+
+GET http://localhost:3000/api/group
+
+### pegar mesa única
+
+GET http://localhost:3000/api/group/655240dbd853a3a3b8c71551

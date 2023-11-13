@@ -16,6 +16,31 @@ const groupController = {
       console.log(`Erro: ${error}`);
     }
   },
+
+  getAll: async (req, res) => {
+    try {
+      const group = await GroupModel.find();
+
+      res.json(group);
+    } catch (error) {
+      console.log(`Erro: ${error}`);
+    }
+  },
+
+  get: async (req, res) => {
+    try {
+      const id = req.params.id;
+      const group = await GroupModel.findById(id);
+
+      if (!group) {
+        res.status(404).json({ msg: "Mesa não encontrada" });
+      }
+
+      res.json(group);
+    } catch (error) {
+      console.log(`Erro: ${error}`);
+    }
+  },
 };
 
 module.exports = groupController;
