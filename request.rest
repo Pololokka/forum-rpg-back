@@ -54,3 +54,18 @@ GET http://localhost:3000/api/group
 ### pegar mesa única
 
 GET http://localhost:3000/api/group/655240dbd853a3a3b8c71551
+
+### deleção de mesa
+
+DELETE  http://localhost:3000/api/group/65524100d853a3a3b8c71555
+
+### edição de mesa
+
+PUT http://localhost:3000/api/group/655240dbd853a3a3b8c71551
+Content-Type: application/json
+
+{
+    "name": "Mesa Teste - Editada",
+    "users": ["Usuário Teste 1", "Usuário Teste 2"],
+    "owner": "Usuário Teste 1"
+}
