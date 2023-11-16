@@ -1,16 +1,16 @@
-const { Forum: ForumModel } = require("../models/Forum");
+const { ForumGm: ForumGmModel } = require("../models/ForumGm");
 
-const forumController = {
+const forumGmController = {
   create: async (req, res) => {
     try {
-      const forum = {
+      const forumGm = {
         user: req.body.user,
         profilePic: req.body.profilePic,
         group: req.body.group,
         postContent: req.body.postContent,
       };
 
-      const response = await ForumModel.create(forum);
+      const response = await ForumGmModel.create(forumGm);
 
       res.status(201).json({ response, msg: "Post efetuado com sucesso!" });
     } catch (error) {
@@ -20,9 +20,9 @@ const forumController = {
 
   getAll: async (req, res) => {
     try {
-      const forum = await ForumModel.find();
+      const forumGm = await ForumGmModel.find();
 
-      res.json(forum);
+      res.json(forumGm);
     } catch (error) {
       console.log(`Erro: ${error}`);
     }
@@ -31,13 +31,13 @@ const forumController = {
   get: async (req, res) => {
     try {
       const id = req.params.id;
-      const forum = await ForumModel.findById(id);
+      const forumGm = await ForumGmModel.findById(id);
 
-      if (!forum) {
+      if (!forumGm) {
         res.status(404).json({ msg: "Post não encontrado" });
       }
 
-      res.json(forum);
+      res.json(forumGm);
     } catch (error) {
       console.log(`Erro: ${error}`);
     }
@@ -46,15 +46,15 @@ const forumController = {
   delete: async (req, res) => {
     try {
       const id = req.params.id;
-      const forum = await ForumModel.findById(id);
+      const forumGm = await ForumGmModel.findById(id);
 
-      if (!forum) {
+      if (!forumGm) {
         res.status(404).json({ msg: "Post não encontrado" });
       }
 
-      const deleteForum = await ForumModel.findByIdAndDelete(id);
+      const deleteForumGm = await ForumGmModel.findByIdAndDelete(id);
 
-      res.status(200).json({ deleteForum, msg: "Post excluído com sucesso" });
+      res.status(200).json({ deleteForumGm, msg: "Post excluído com sucesso" });
     } catch (error) {
       console.log(`Erro: ${error}`);
     }
@@ -63,21 +63,21 @@ const forumController = {
   update: async (req, res) => {
     const id = req.params.id;
 
-    const forum = {
+    const forumGm = {
       user: req.body.user,
       profilePic: req.body.profilePic,
       group: req.body.group,
       postContent: req.body.postContent,
     };
 
-    const updateForum = await ForumModel.findByIdAndUpdate(id, forum);
+    const updateForumGm = await ForumGmModel.findByIdAndUpdate(id, forumGm);
 
-    if (!updateForum) {
+    if (!updateForumGm) {
       res.status(404).json({ msg: "Post não encontrado" });
     }
 
-    res.status(200).json({ forum, msg: "Post editado com sucesso" });
+    res.status(200).json({ forumGm, msg: "Post editado com sucesso" });
   },
 };
 
-module.exports = forumController;
+module.exports = forumGmController;
