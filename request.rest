@@ -34,6 +34,10 @@ Content-Type: application/json
     "postContent": "teste de edição, meu patrão"
 }
 
+
+
+
+
 ### MESAS ###
 
 ### criar nova mesa
@@ -70,6 +74,10 @@ Content-Type: application/json
     "owner": "Usuário Teste 1"
 }
 
+
+
+
+
 ### GM NOTES ###
 
 ### novo post em gm notes
@@ -81,7 +89,7 @@ Content-Type: application/json
     "user": "Usuário Teste",
     "profilePic": "https://cdn.discordapp.com/attachments/621499803884584998/1168562289453051945/marco-wulfr-marco-wulfr-twinning-blade-final-marcowulfr-closeup-pattern.jpg?ex=65523770&is=653fc270&hm=b41b6169e0acfa8967264547d1a7e1d4de58bf5bdd23c28fbec3e9e9184a408d&",
     "group": "Mesa Teste 25",
-    "postContent": "qualquer coisa aqui só pra ver se tá funcionando"
+    "postContent": "teste do model"
 }
 
 ### pegar todos os posts em gm notes
@@ -106,4 +114,47 @@ Content-Type: application/json
     "profilePic": "https://cdn.discordapp.com/attachments/621499803884584998/1168562289453051945/marco-wulfr-marco-wulfr-twinning-blade-final-marcowulfr-closeup-pattern.jpg?ex=65523770&is=653fc270&hm=b41b6169e0acfa8967264547d1a7e1d4de58bf5bdd23c28fbec3e9e9184a408d&",
     "group": "Qualquer porra aqui só pra ver se vai",
     "postContent": "teste de edição, meu patrão"
+}
+
+
+
+
+
+
+### FURTHER READING ###
+
+### novo post em further reading
+
+POST http://localhost:3000/api/reading
+Content-Type: application/json
+
+{
+    "user": "Usuário Teste",
+    "profilePic": "https://cdn.discordapp.com/attachments/621499803884584998/1168562289453051945/marco-wulfr-marco-wulfr-twinning-blade-final-marcowulfr-closeup-pattern.jpg?ex=65523770&is=653fc270&hm=b41b6169e0acfa8967264547d1a7e1d4de58bf5bdd23c28fbec3e9e9184a408d&",
+    "group": "Mesa Teste",
+    "postContent": "mais um teste do further reading só pra garantir"
+}
+
+### pegar todos os posts em further reading
+
+GET http://localhost:3000/api/reading
+
+### pegar post único em further reading
+
+GET http://localhost:3000/api/reading/655b676d71258a3d322238f3
+
+### deleção de post em further reading
+
+DELETE  http://localhost:3000/api/reading/655b676d71258a3d322238f3
+
+### edição de post em further reading
+
+PUT http://localhost:3000/api/reading/655b675b71258a3d322238f1
+Content-Type: application/json
+
+{
+    "user": "Usuário Teste",
+    "profilePic": "https://cdn.discordapp.com/attachments/621499803884584998/1168562289453051945/marco-wulfr-marco-wulfr-twinning-blade-final-marcowulfr-closeup-pattern.jpg?ex=65523770&is=653fc270&hm=b41b6169e0acfa8967264547d1a7e1d4de58bf5bdd23c28fbec3e9e9184a408d&",
+    "group": "Qualquer porra aqui só pra ver se vai",
+    "postContent": "teste de edição no further reading, meu patrão"
 }
