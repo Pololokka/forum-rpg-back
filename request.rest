@@ -158,3 +158,18 @@ Content-Type: application/json
     "group": "Qualquer porra aqui só pra ver se vai",
     "postContent": "teste de edição no further reading, meu patrão"
 }
+
+
+
+
+### Criado user
+
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+    "name": "Usuário Teste",
+    "email": "teste@teste",
+    "password": "SenhaTeste",
+    "confirmPassword": "SenhaTeste"
+}
