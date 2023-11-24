@@ -161,15 +161,30 @@ Content-Type: application/json
 
 
 
+### USERS ###
 
-### Criado user
+### Criando user
 
 POST http://localhost:3000/auth/register
 Content-Type: application/json
 
 {
-    "name": "Usuário Teste",
-    "email": "teste@teste",
+    "name": "Usuário Teste 3",
+    "email": "teste4@teste4",
     "password": "SenhaTeste",
     "confirmPassword": "SenhaTeste"
+}
+
+### pegar todos os users
+
+GET http://localhost:3000/auth/register
+
+### Criando user
+
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "email": "teste4@teste4",
+    "password": "SenhaTeste"
 }
