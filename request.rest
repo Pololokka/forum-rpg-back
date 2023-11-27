@@ -165,26 +165,30 @@ Content-Type: application/json
 
 ### Criando user
 
-POST http://localhost:3000/auth/register
+POST http://localhost:3000/api/auth/register
 Content-Type: application/json
 
 {
-    "name": "Usuário Teste 3",
-    "email": "teste4@teste4",
+    "name": "Usuário Teste 5",
+    "email": "teste5@teste5",
     "password": "SenhaTeste",
     "confirmPassword": "SenhaTeste"
 }
 
 ### pegar todos os users
 
-GET http://localhost:3000/auth/register
+GET http://localhost:3000/api/auth/register
 
 ### Criando user
 
-POST http://localhost:3000/auth/login
+POST http://localhost:3000/api/auth/login
 Content-Type: application/json
 
 {
     "email": "teste4@teste4",
     "password": "SenhaTeste"
 }
+
+### pega informação do user
+
+GET http://localhost:3000/api/user/65610163d9111ede58e49b2c
