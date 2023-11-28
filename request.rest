@@ -6,8 +6,8 @@ Content-Type: application/json
 {
     "user": "Usuário Teste",
     "profilePic": "https://cdn.discordapp.com/attachments/621499803884584998/1168562289453051945/marco-wulfr-marco-wulfr-twinning-blade-final-marcowulfr-closeup-pattern.jpg?ex=65523770&is=653fc270&hm=b41b6169e0acfa8967264547d1a7e1d4de58bf5bdd23c28fbec3e9e9184a408d&",
-    "group": "Mesa Teste",
-    "postContent": "qualquer coisa aqui só pra ver se tá funcionando"
+    "group": "655240dbd853a3a3b8c71551",
+    "postContent": "teste pra ver se a query vai funcionar 3"
 }
 
 ### pegar todos os posts do fórum
@@ -33,6 +33,10 @@ Content-Type: application/json
     "date": "01-11-23 15:23",
     "postContent": "teste de edição, meu patrão"
 }
+
+### pegar todos os posts do fórum
+
+GET http://localhost:3000/api/forum/posts/655240dbd853a3a3b8c71551
 
 
 
