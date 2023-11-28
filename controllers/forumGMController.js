@@ -1,4 +1,4 @@
-const { ForumGm: ForumGmModel } = require("../models/ForumGm");
+const { ForumGm: ForumGmModel, ForumGm } = require("../models/ForumGm");
 
 const forumGmController = {
   create: async (req, res) => {
@@ -77,6 +77,17 @@ const forumGmController = {
     }
 
     res.status(200).json({ forumGm, msg: "Post editado com sucesso" });
+  },
+
+  getGroupPosts: async (req, res) => {
+    try {
+      const id = req.params.id;
+
+      const posts = await ForumGm.find({ group: id });
+      res.json(posts);
+    } catch (error) {
+      console.log(`Erro: ${error}`);
+    }
   },
 };
 
