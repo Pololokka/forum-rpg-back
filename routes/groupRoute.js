@@ -14,4 +14,8 @@ router
 
 router.route("/group/:id").put((req, res) => groupController.update(req, res));
 
+router
+  .route("/group/user")
+  .post((req, res) => groupController.getUserGroups(req, res));
+
 module.exports = router;

@@ -78,6 +78,15 @@ Content-Type: application/json
     "owner": "Usuário Teste 1"
 }
 
+### criar nova mesa
+
+POST http://localhost:3000/api/group/user
+Content-Type: application/json
+
+{
+    "groups": ["655240dbd853a3a3b8c71551", "655240ebd853a3a3b8c71553"]
+}
+
 
 
 
