@@ -83,6 +83,17 @@ const forumReadController = {
 
     res.status(200).json({ forumRead, msg: "Post editado com sucesso" });
   },
+
+  getGroupPosts: async (req, res) => {
+    try {
+      const id = req.params.id;
+
+      const posts = await ForumReadModel.find({ group: id });
+      res.json(posts);
+    } catch (error) {
+      console.log(`Erro: ${error}`);
+    }
+  },
 };
 
 module.exports = forumReadController;

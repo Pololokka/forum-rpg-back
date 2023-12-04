@@ -76,6 +76,22 @@ const groupController = {
 
     res.status(200).json({ group, msg: "Mesa editada com sucesso" });
   },
+
+  getUserGroups: async (req, res) => {
+    try {
+      const groupArray = req.body.groups;
+
+      if (!groupArray) {
+        res.status(404).json({ msg: "Mesa não encontrada" });
+      }
+
+      const group = await GroupModel.find({ _id: { $in: groupArray } });
+
+      res.json(group);
+    } catch (error) {
+      console.log(`Erro: ${error}`);
+    }
+  },
 };
 
 module.exports = groupController;

@@ -14,4 +14,8 @@ router
 
 router.route("/gm/:id").put((req, res) => forumGmController.update(req, res));
 
+router
+  .route("/gm/posts/:id")
+  .get((req, res) => forumGmController.getGroupPosts(req, res));
+
 module.exports = router;

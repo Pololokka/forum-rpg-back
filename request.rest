@@ -6,8 +6,8 @@ Content-Type: application/json
 {
     "user": "Usuário Teste",
     "profilePic": "https://cdn.discordapp.com/attachments/621499803884584998/1168562289453051945/marco-wulfr-marco-wulfr-twinning-blade-final-marcowulfr-closeup-pattern.jpg?ex=65523770&is=653fc270&hm=b41b6169e0acfa8967264547d1a7e1d4de58bf5bdd23c28fbec3e9e9184a408d&",
-    "group": "Mesa Teste",
-    "postContent": "qualquer coisa aqui só pra ver se tá funcionando"
+    "group": "655240ebd853a3a3b8c71553",
+    "postContent": "teste pra ver se a query vai funcionar 3"
 }
 
 ### pegar todos os posts do fórum
@@ -30,9 +30,13 @@ Content-Type: application/json
 {
     "user": "Usuário Teste",
     "profilePic": "https://cdn.discordapp.com/attachments/621499803884584998/1168562289453051945/marco-wulfr-marco-wulfr-twinning-blade-final-marcowulfr-closeup-pattern.jpg?ex=65523770&is=653fc270&hm=b41b6169e0acfa8967264547d1a7e1d4de58bf5bdd23c28fbec3e9e9184a408d&",
-    "date": "01-11-23 15:23",
+    "group": "655240dbd853a3a3b8c71551",
     "postContent": "teste de edição, meu patrão"
 }
+
+### pegar todos os posts de um fórum específico
+
+GET http://localhost:3000/api/forum/posts/655240dbd853a3a3b8c71551
 
 
 
@@ -74,6 +78,15 @@ Content-Type: application/json
     "owner": "Usuário Teste 1"
 }
 
+### criar nova mesa
+
+POST http://localhost:3000/api/group/user
+Content-Type: application/json
+
+{
+    "groups": ["655240dbd853a3a3b8c71551", "655240ebd853a3a3b8c71553"]
+}
+
 
 
 
@@ -88,8 +101,8 @@ Content-Type: application/json
 {
     "user": "Usuário Teste",
     "profilePic": "https://cdn.discordapp.com/attachments/621499803884584998/1168562289453051945/marco-wulfr-marco-wulfr-twinning-blade-final-marcowulfr-closeup-pattern.jpg?ex=65523770&is=653fc270&hm=b41b6169e0acfa8967264547d1a7e1d4de58bf5bdd23c28fbec3e9e9184a408d&",
-    "group": "Mesa Teste 25",
-    "postContent": "teste do model"
+    "group": "655240dbd853a3a3b8c71551",
+    "postContent": "teste de pegar os posts em gm 3"
 }
 
 ### pegar todos os posts em gm notes
@@ -106,16 +119,20 @@ DELETE  http://localhost:3000/api/gm/65562efbbefac6572f5d65b0
 
 ### edição de post em gm notes
 
-PUT http://localhost:3000/api/gm/65562efbbefac6572f5d65b0
+PUT http://localhost:3000/api/gm/6565fe3076c57e9e57bce2b4
 Content-Type: application/json
 
 {
-    "user": "Usuário Teste",
+    "user": "Usuário Teste 1",
     "profilePic": "https://cdn.discordapp.com/attachments/621499803884584998/1168562289453051945/marco-wulfr-marco-wulfr-twinning-blade-final-marcowulfr-closeup-pattern.jpg?ex=65523770&is=653fc270&hm=b41b6169e0acfa8967264547d1a7e1d4de58bf5bdd23c28fbec3e9e9184a408d&",
-    "group": "Qualquer porra aqui só pra ver se vai",
+    "group": "655240ebd853a3a3b8c71553",
     "postContent": "teste de edição, meu patrão"
 }
 
+
+### pegar posts de uma única mesa em GM
+
+GET http://localhost:3000/api/gm/posts/655240ebd853a3a3b8c71553
 
 
 
@@ -131,8 +148,8 @@ Content-Type: application/json
 {
     "user": "Usuário Teste",
     "profilePic": "https://cdn.discordapp.com/attachments/621499803884584998/1168562289453051945/marco-wulfr-marco-wulfr-twinning-blade-final-marcowulfr-closeup-pattern.jpg?ex=65523770&is=653fc270&hm=b41b6169e0acfa8967264547d1a7e1d4de58bf5bdd23c28fbec3e9e9184a408d&",
-    "group": "Mesa Teste",
-    "postContent": "mais um teste do further reading só pra garantir"
+    "group": "655240dbd853a3a3b8c71551",
+    "postContent": "teste de pegar post de mesa única no further reading 2"
 }
 
 ### pegar todos os posts em further reading
@@ -155,9 +172,15 @@ Content-Type: application/json
 {
     "user": "Usuário Teste",
     "profilePic": "https://cdn.discordapp.com/attachments/621499803884584998/1168562289453051945/marco-wulfr-marco-wulfr-twinning-blade-final-marcowulfr-closeup-pattern.jpg?ex=65523770&is=653fc270&hm=b41b6169e0acfa8967264547d1a7e1d4de58bf5bdd23c28fbec3e9e9184a408d&",
-    "group": "Qualquer porra aqui só pra ver se vai",
+    "group": "655240ebd853a3a3b8c71553",
     "postContent": "teste de edição no further reading, meu patrão"
 }
+
+### pegar posts de uma única mesa em further reading
+
+GET http://localhost:3000/api/reading/posts/655240ebd853a3a3b8c71553
+
+
 
 
 
@@ -165,26 +188,30 @@ Content-Type: application/json
 
 ### Criando user
 
-POST http://localhost:3000/auth/register
+POST http://localhost:3000/api/auth/register
 Content-Type: application/json
 
 {
-    "name": "Usuário Teste 3",
-    "email": "teste4@teste4",
+    "name": "Usuário Teste 5",
+    "email": "teste5@teste5",
     "password": "SenhaTeste",
     "confirmPassword": "SenhaTeste"
 }
 
 ### pegar todos os users
 
-GET http://localhost:3000/auth/register
+GET http://localhost:3000/api/auth/register
 
 ### Criando user
 
-POST http://localhost:3000/auth/login
+POST http://localhost:3000/api/auth/login
 Content-Type: application/json
 
 {
     "email": "teste4@teste4",
     "password": "SenhaTeste"
 }
+
+### pega informação do user
+
+GET http://localhost:3000/api/user/65610163d9111ede58e49b2c

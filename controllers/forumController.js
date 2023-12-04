@@ -78,6 +78,17 @@ const forumController = {
 
     res.status(200).json({ forum, msg: "Post editado com sucesso" });
   },
+
+  getGroupPosts: async (req, res) => {
+    try {
+      const id = req.params.id;
+
+      const posts = await ForumModel.find({ group: id });
+      res.json(posts);
+    } catch (error) {
+      console.log(`Erro: ${error}`);
+    }
+  },
 };
 
 module.exports = forumController;

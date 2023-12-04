@@ -17,124 +17,132 @@ conn();
 
 // Register User
 
-const User = require("./models/User");
+// const User = require("./models/User");
 
-app.post("/auth/register", async (req, res) => {
-  const { name, email, password, confirmPassword } = req.body;
+// app.post("/auth/register", async (req, res) => {
+//   const { name, email, password, confirmPassword } = req.body;
 
-  //validações
+//   //validações
 
-  if (!name) {
-    return res.status(422).json({ msg: "O nome é obrigatório!" });
-  }
+//   if (!name) {
+//     return res.status(422).json({ msg: "O nome é obrigatório!" });
+//   }
 
-  if (!email) {
-    return res.status(422).json({ msg: "O email é obrigatório!" });
-  }
+//   if (!email) {
+//     return res.status(422).json({ msg: "O email é obrigatório!" });
+//   }
 
-  if (!password) {
-    return res.status(422).json({ msg: "A senha é obrigatória!" });
-  }
+//   if (!password) {
+//     return res.status(422).json({ msg: "A senha é obrigatória!" });
+//   }
 
-  if (password !== confirmPassword) {
-    return res.status(422).json({ msg: "As senhas não conferem!" });
-  }
+//   if (password !== confirmPassword) {
+//     return res.status(422).json({ msg: "As senhas não conferem!" });
+//   }
 
-  //checa se o user existe
+//   //checa se o user existe
 
-  const userExists = await User.findOne({ email: email });
+//   const userExists = await User.findOne({ email: email });
 
-  if (userExists) {
-    return res.status(422).json({ msg: "Email já cadastrado!" });
-  }
+//   if (userExists) {
+//     return res.status(422).json({ msg: "Email já cadastrado!" });
+//   }
 
-  //senha
+//   //senha
 
-  const salt = await bcrypt.genSalt(12);
-  const passwordHash = await bcrypt.hash(password, salt);
+//   const salt = await bcrypt.genSalt(12);
+//   const passwordHash = await bcrypt.hash(password, salt);
 
-  //cria usuário
+//   //cria usuário
 
-  const user = new User({
-    name,
-    email,
-    password: passwordHash,
-  });
+//   const user = new User({
+//     name,
+//     email,
+//     password: passwordHash,
+//   });
 
-  try {
-    await user.save();
+//   try {
+//     await user.save();
 
-    res.status(201).json({ msg: "Usuário criado com sucesso!" });
-    console.log("Usuário criado com sucesso!");
-  } catch (error) {
-    res.status(500).json({ msg: "Não é possível cadastrar no momento" });
-    console.log(error);
-  }
-});
+//     res.status(201).json({ msg: "Usuário criado com sucesso!" });
+//     console.log("Usuário criado com sucesso!");
+//   } catch (error) {
+//     res.status(500).json({ msg: "Não é possível cadastrar no momento" });
+//     console.log(error);
+//   }
+// });
 
 // pega todos os users
 
-app.get("/auth/register", async (req, res) => {
-  try {
-    const users = await User.find();
+// app.get("/auth/register", async (req, res) => {
+//   try {
+//     const users = await User.find();
 
-    res.json(users);
-  } catch (error) {
-    console.log(`Erro: ${error}`);
-  }
-});
+//     res.json(users);
+//   } catch (error) {
+//     console.log(`Erro: ${error}`);
+//   }
+// });
 
 // login user
 
-app.post("/auth/login", async (req, res) => {
-  const { email, password } = req.body;
+// app.post("/auth/login", async (req, res) => {
+//   const { email, password } = req.body;
 
-  // validação
+//   // validação
 
-  if (!email) {
-    return res.status(422).json({ msg: "O email é obrigatório!" });
-  }
+//   if (!email) {
+//     return res.status(422).json({ msg: "O email é obrigatório!" });
+//   }
 
-  if (!password) {
-    return res.status(422).json({ msg: "A senha é obrigatória!" });
-  }
+//   if (!password) {
+//     return res.status(422).json({ msg: "A senha é obrigatória!" });
+//   }
 
-  //checa se o usuário existe
+//   //checa se o usuário existe
 
-  const user = await User.findOne({ email: email });
+//   const user = await User.findOne({ email: email });
 
-  if (!user) {
-    return res.status(404).json({ msg: "Usuário não encontrado!" });
-  }
+//   if (!user) {
+//     return res.status(404).json({ msg: "Usuário não encontrado!" });
+//   }
 
-  //checa se a senha tá certa
+//   //checa se a senha tá certa
 
-  const checkPass = await bcrypt.compare(password, user.password);
+//   const checkPass = await bcrypt.compare(password, user.password);
 
-  if (!checkPass) {
-    return res.status(422).json({ msg: "Senha inválida" });
-  }
+//   if (!checkPass) {
+//     return res.status(422).json({ msg: "Senha inválida" });
+//   }
 
-  try {
-    const secret = process.env.SECRET;
+//   try {
+//     const secret = process.env.SECRET;
 
-    const token = jwt.sign(
-      {
-        id: user._id,
-      },
-      secret
-    );
+//     const token = jwt.sign(
+//       {
+//         id: user._id,
+//       },
+//       secret
+//     );
 
-    res.status(200).json({ msg: "autenticação realizada com sucesso!", token });
-  } catch (error) {
-    res.status(500).json({ msg: "Houve um erro, tente novamente mais tarde" });
-    console.log(error);
-  }
-});
+//     res.status(200).json({ msg: "autenticação realizada com sucesso!", token });
+//   } catch (error) {
+//     res.status(500).json({ msg: "Houve um erro, tente novamente mais tarde" });
+//     console.log(error);
+//   }
+// });
+
+//// ROUTES ////
+
+// public route
+
+const routes = require("./routes/router");
+
+app.use("/api", routes);
 
 // private route
 
-app.get("/user/:id", checkToken, async (req, res) => {
+app.get("/api/user/:id", checkToken, async (req, res) => {
   const id = req.params.id;
 
   const user = await User.findById(id, "-password");
@@ -166,10 +174,7 @@ function checkToken(req, res, next) {
   }
 }
 
-// Routes
-const routes = require("./routes/router");
-
-app.use("/api", routes);
+//// INICIALIZAÇÃO ////
 
 app.listen(3000, function () {
   console.log("### Servidor Online ###");

@@ -22,4 +22,8 @@ router
   .route("/reading/:id")
   .put((req, res) => forumReadController.update(req, res));
 
+router
+  .route("/reading/posts/:id")
+  .get((req, res) => forumReadController.getGroupPosts(req, res));
+
 module.exports = router;
