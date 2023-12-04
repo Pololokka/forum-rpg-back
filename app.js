@@ -17,8 +17,6 @@ conn();
 
 // Register User
 
-// const User = require("./models/User");
-
 // app.post("/auth/register", async (req, res) => {
 //   const { name, email, password, confirmPassword } = req.body;
 
@@ -141,6 +139,8 @@ const routes = require("./routes/router");
 app.use("/api", routes);
 
 // private route
+
+const User = require("./models/User");
 
 app.get("/api/user/:id", checkToken, async (req, res) => {
   const id = req.params.id;

@@ -202,7 +202,7 @@ Content-Type: application/json
 
 GET http://localhost:3000/api/auth/register
 
-### Criando user
+### login user
 
 POST http://localhost:3000/api/auth/login
 Content-Type: application/json
@@ -214,4 +214,13 @@ Content-Type: application/json
 
 ### pega informação do user
 
+GET https://forum-rpg-back.onrender.com/api/user/65610163d9111ede58e49b2c
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NjEwMTYzZDkxMTFlZGU1OGU0OWIyYyIsImlhdCI6MTcwMTcxMDU5Nn0._ynux7lMb895dU3SAolY3yhaPf3glvtcXb4SdEVjD9M
+
+
+### pega informação do user
+
 GET http://localhost:3000/api/user/65610163d9111ede58e49b2c
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NjEwMTYzZDkxMTFlZGU1OGU0OWIyYyIsImlhdCI6MTcwMTcxMDU5Nn0._ynux7lMb895dU3SAolY3yhaPf3glvtcXb4SdEVjD9M
