@@ -58,14 +58,23 @@ const userController = {
     }
   },
 
-  getAll: async (req, res) => {
-    try {
-      const users = await User.find();
+  update: async (req, res) => {
+    const id = req.params.id;
+    const user = {
+      name: req.body.name,
+      email: req.body.email,
+      image: req.body.image,
+      groups: req.body.groups,
+    };
 
-      res.json(users);
-    } catch (error) {
-      console.log(`Erro: ${error}`);
+    const updateUser = await User.findByIdAndUpdate(id, user);
+
+    if (!updateUser) {
+      res.status(404).json({ msg: "Usuário não encontrado" });
+      return;
     }
+
+    res.status(200).json({ user, msg: "Usuário atualizado!" });
   },
 
   login: async (req, res) => {
