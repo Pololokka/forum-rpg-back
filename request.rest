@@ -36,7 +36,7 @@ Content-Type: application/json
 
 ### pegar todos os posts de um fórum específico
 
-GET http://localhost:3000/api/forum/posts/655240dbd853a3a3b8c71551
+GET http://localhost:3000/api/forum/posts/655240dbd853a3a3b8c71551/6
 
 
 
@@ -78,7 +78,7 @@ Content-Type: application/json
     "owner": "Usuário Teste 1"
 }
 
-### criar nova mesa
+### pega mesa de um único user
 
 POST http://localhost:3000/api/group/user
 Content-Type: application/json
@@ -192,8 +192,9 @@ POST http://localhost:3000/api/auth/register
 Content-Type: application/json
 
 {
-    "name": "Usuário Teste 5",
-    "email": "teste5@teste5",
+    "name": "Usuário Teste 6",
+    "email": "teste6@teste6",
+    "img": "https://cdn.discordapp.com/attachments/621499803884584998/1183764120655380580/Iconic_Mios.png?ex=6589853f&is=6577103f&hm=2f0e1dbedc760a6d3acec144b1a9f91e5b37fd5d041efc7352250b675b5c347e&",
     "password": "SenhaTeste",
     "confirmPassword": "SenhaTeste"
 }
@@ -225,11 +226,11 @@ GET http://localhost:3000/api/user/65610163d9111ede58e49b2c
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NjEwMTYzZDkxMTFlZGU1OGU0OWIyYyIsImlhdCI6MTcwMTcxMDU5Nn0._ynux7lMb895dU3SAolY3yhaPf3glvtcXb4SdEVjD9M
 
-### pega informação do user
+### atualiza informação do user
 
-PUT  http://localhost:3000/api/auth/update/65650e5b785f17ca96a1b9c5
+PUT  http://localhost:3000/api/auth/update/657712782d8d27572fac4b81
 Content-Type: application/json
 
 {
-    "name": "Usuário Teste 500"
+    "groups": ["655240dbd853a3a3b8c71551"]
 }

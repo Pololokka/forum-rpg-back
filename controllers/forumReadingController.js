@@ -87,9 +87,26 @@ const forumReadController = {
   getGroupPosts: async (req, res) => {
     try {
       const id = req.params.id;
+      const page = req.params.page;
 
       const posts = await ForumReadModel.find({ group: id });
-      res.json(posts);
+
+      const totalPages = Math.ceil(posts.length / 10);
+      console.log(totalPages);
+
+      if (page <= totalPages) {
+        const minPost = (page - 1) * 10 + 1;
+        const maxPost = minPost + 10;
+
+        console.log("post mínimo: ", minPost);
+        console.log("post máximo: ", maxPost - 1);
+
+        const slicedArr = posts.slice(minPost, maxPost);
+
+        res.json({ slicedArr, totalPages });
+      } else {
+        res.status(404).json({ msg: "Posts não encontrados" });
+      }
     } catch (error) {
       console.log(`Erro: ${error}`);
     }

@@ -6,7 +6,7 @@ require("dotenv").config();
 
 const userController = {
   create: async (req, res) => {
-    const { name, email, password, confirmPassword } = req.body;
+    const { name, email, img, password, confirmPassword } = req.body;
 
     //validações
 
@@ -44,6 +44,7 @@ const userController = {
     const user = new User({
       name,
       email,
+      img,
       password: passwordHash,
     });
 
@@ -63,7 +64,7 @@ const userController = {
     const user = {
       name: req.body.name,
       email: req.body.email,
-      image: req.body.image,
+      img: req.body.img,
       groups: req.body.groups,
     };
 
