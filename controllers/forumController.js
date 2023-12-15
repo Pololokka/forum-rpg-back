@@ -87,14 +87,10 @@ const forumController = {
       const posts = await ForumModel.find({ group: id });
 
       const totalPages = Math.ceil(posts.length / 10);
-      console.log(totalPages);
 
       if (page <= totalPages) {
         const minPost = (page - 1) * 10 + 1;
         const maxPost = minPost + 10;
-
-        console.log("post mínimo: ", minPost);
-        console.log("post máximo: ", maxPost - 1);
 
         const slicedArr = posts.slice(minPost, maxPost);
 
