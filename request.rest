@@ -36,7 +36,7 @@ Content-Type: application/json
 
 ### pegar todos os posts de um fórum específico
 
-GET http://localhost:3000/api/forum/posts/655240dbd853a3a3b8c71551
+GET http://localhost:3000/api/forum/posts/655240dbd853a3a3b8c71551/6
 
 
 
@@ -226,9 +226,9 @@ GET http://localhost:3000/api/user/65610163d9111ede58e49b2c
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NjEwMTYzZDkxMTFlZGU1OGU0OWIyYyIsImlhdCI6MTcwMTcxMDU5Nn0._ynux7lMb895dU3SAolY3yhaPf3glvtcXb4SdEVjD9M
 
-### pega informação do user
+### atualiza informação do user
 
-PUT  http://localhost:3000/api/auth/update/65610163d9111ede58e49b2c
+PUT  http://localhost:3000/api/auth/update/657712782d8d27572fac4b81
 Content-Type: application/json
 
 {
