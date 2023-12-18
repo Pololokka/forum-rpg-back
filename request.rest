@@ -36,7 +36,7 @@ Content-Type: application/json
 
 ### pegar todos os posts de um fórum específico
 
-GET http://localhost:3000/api/forum/posts/655240dbd853a3a3b8c71551/6
+GET http://localhost:3000/api/forum/posts/655240dbd853a3a3b8c71551?offset=50&limit=10
 
 
 

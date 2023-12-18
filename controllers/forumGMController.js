@@ -82,21 +82,21 @@ const forumGmController = {
   getGroupPosts: async (req, res) => {
     try {
       const id = req.params.id;
-      const page = req.params.page;
+      const offset = req.query.offset || 0;
+      const limit = req.query.limit || 10;
 
-      const posts = await ForumGm.find({ group: id });
+      const posts = await ForumGmModel.find({ group: id });
 
-      const totalPages = Math.ceil(posts.length / 10);
+      const totalPages = Math.ceil(posts.length / limit);
 
-      if (page <= totalPages) {
-        const minPost = (page - 1) * 10 + 1;
-        const maxPost = minPost + 10;
+      if (offset < totalPages * 10) {
+        const payload = await ForumGmModel.find({ group: id })
+          .skip(offset)
+          .limit(limit);
 
-        const slicedArr = posts.slice(minPost, maxPost);
-
-        res.json({ slicedArr, totalPages });
+        res.json({ payload, totalPages });
       } else {
-        res.status(404).json({ msg: "Posts não encontrados" });
+        res.status(404).json({ msg: "A página não pode ser carregada" });
       }
     } catch (error) {
       console.log(`Erro: ${error}`);
