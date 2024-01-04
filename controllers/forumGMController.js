@@ -89,7 +89,7 @@ const forumGmController = {
 
       const totalPages = Math.ceil(posts.length / limit);
 
-      if (offset < totalPages * 10) {
+      if (offset < totalPages * limit) {
         const payload = await ForumGmModel.find({ group: id })
           .skip(offset)
           .limit(limit);
