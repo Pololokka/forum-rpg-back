@@ -94,7 +94,7 @@ const forumReadController = {
 
       const totalPages = Math.ceil(posts.length / limit);
 
-      if (offset < totalPages * 10) {
+      if (offset < totalPages * limit) {
         const payload = await ForumReadModel.find({ group: id })
           .skip(offset)
           .limit(limit);
