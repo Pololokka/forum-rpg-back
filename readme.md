@@ -65,6 +65,8 @@ Todas as rotas são como as de Fórum. Para usar essas rotas, basta trocar "foru
 
 ### User
 
+#### Rotas
+
 - /api/auth/register
 
 > Método : POST
@@ -100,6 +102,8 @@ Rota que pega a informação de um único usuário(reconhecido pelo ID). Essa é
 Rota para atualizar as informações de um dado usuário.
 
 ### Groups/Mesas
+
+#### Rotas
 
 - /api/group
 
