@@ -19,33 +19,125 @@ Rota que exibe as mesas que um usuário está inserido, e permite a criação de
 
 ### Forum
 
-Rota onde o usuário recebe os posts de uma determinada mesa
+Rota onde o usuário recebe os posts de uma determinada mesa, e também pode fazer novas postagens
 
-#### GM
+#### Rotas
 
-Rota interna do Fórum, que exibe posts feitos pelo GM
+- /api/forum
 
-#### Further Reading
+> Método: GET
 
-Rota interna do Fórum, que exibe os posts feitos pelo GM, indicando leitura extra
+Nessa rota, você consegue pegar todos os posts da categoria "forum" de uma vez só. É mais uma rota de teste do que qualquer coisa, pois ela acaba não tendo muito uso prático nessa aplicação.
+
+---
+
+- /api/forum/:id
+
+> Método: GET
+
+Com essa rota você pega um único post específico da categoria "forum". Outra rota feita mais pra testes, pois não tem tanta aplicação real no meu projeto(mas talvez você consiga fazer algo único!).
+
+> Método: DELETE
+
+Essa rota serve para apagar um post específico. O ID que deve ser passado nesta rota é o do post.
+
+> Método: PUT
+
+Essa rota serve pra editar um post específico. Assim como na rota de deleção, a rota de edição também espera receber um ID de post.
+
+---
+
+- /api/forum/posts/:id?offset=X&limit=Y
+
+> Método : GET
+
+Uma das rotas mais importantes do projeto, ela também pega os posts da categoria "forum", mas somente os posts que contém o ID passado(o ID deve ser de um grupo, e não de um post, como nos outros casos), e já devolve os posts paginados, com base no que for passado nos parâmetros offset(quantidade de posts que deve ser pulada), e limit(quantidade de posts que deve ser retornada), assim como retorna a quantidade máxima de páginas, pra deixar fácil a exibição no front.
+
+A rota também conta com um tratamento de erro, que verifica se o offset é menor que a quantidade de posts pedida, antes de puxar e devolver os mesmos.
+
+### GM
+
+Todas as rotas são como as de Fórum. Para usar essas rotas, basta trocar "forum" por "gm" nas URLs
+
+### Further Reading
+
+Todas as rotas são como as de Fórum. Para usar essas rotas, basta trocar "forum" por "reading" nas URLs
 
 ### User
 
-Rota que exibe as informações de um usuário, e permite algumas mudanças
+#### Rotas
 
-## Roadmap
+- /api/auth/register
 
-- [ ] Forum
-- ~~Rota de criação de posts~~
-- ~~Rota de deleção de posts~~
-- ~~Rota de update de posts~~
-- ~~Rota de pegar os posts~~
-- Agrupar posts por mesa
+> Método : POST
 
-- [ ] GM
-- [ ] Further Reading
-- [ ] User - Rota para alterar nome de usuário, e foto
-- [ ] Paginação
+Rota de criação de usuários.
+
+> Método : GET
+
+Rota para pegar todos os users cadastrados.
+
+---
+
+- /api/auth/login
+
+> Método : POST
+
+Rota para fazer o login de um usuário.
+
+---
+
+- /api/user/:id
+
+> Método : GET
+
+Rota que pega a informação de um único usuário(reconhecido pelo ID). Essa é uma rota privada, que precisa de token para ser acessada. Essa rota é bem importante, pois é com ela que pegamos os grupos de um determinado usuário.
+
+---
+
+- api/auth/update/:id
+
+> Método : PUT
+
+Rota para atualizar as informações de um dado usuário.
+
+### Groups/Mesas
+
+#### Rotas
+
+- /api/group
+
+> Método : POST
+
+Rota que cria um grupo novo.
+
+> Método: GET
+
+Rota que pega todas as mesas cadastradas na DB.
+
+---
+
+- api/group/:id
+
+> Método : GET
+
+Rota que pega uma única mesa, com base no ID passado.
+
+> Método : DELETE
+
+Rota que deleta uma única mesa, com base no ID passado.
+
+> Método : PUT
+
+Rota que altera as informações da mesa, com base no ID passado.
+
+---
+
+- /api/group/user
+
+> Método : POST
+
+Rota que pega todos os grupos que de um usuário. A rota recebe um array de ID de grupos, faz uma busca na DB, e retorna os grupos encontrados com os IDs informados.
 
 ## Licença
 
