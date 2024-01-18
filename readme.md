@@ -13,10 +13,6 @@ Back End do meu projeto de Fórum para mesas de RPG
 
 ## Escopo do projeto
 
-### Groups
-
-Rota que exibe as mesas que um usuário está inserido, e permite a criação de novos grupos
-
 ### Forum
 
 Rota onde o usuário recebe os posts de uma determinada mesa, e também pode fazer novas postagens
